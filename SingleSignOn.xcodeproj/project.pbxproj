@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5610F06F202D13E7004CD2AC /* SingleSignOn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5610F065202D13E7004CD2AC /* SingleSignOn.framework */; };
+		5610F074202D13E7004CD2AC /* SingleSignOnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5610F073202D13E7004CD2AC /* SingleSignOnTests.swift */; };
+		5610F076202D13E7004CD2AC /* SingleSignOn.h in Headers */ = {isa = PBXBuildFile; fileRef = 5610F068202D13E7004CD2AC /* SingleSignOn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5610F080202D14E3004CD2AC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 5610F07F202D14E3004CD2AC /* Podfile */; };
+		BBF776BE94BDB4E00ABA2247 /* Pods_SingleSignOn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 133211EAD64B6E7010491C5B /* Pods_SingleSignOn.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5610F070202D13E7004CD2AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5610F05C202D13E7004CD2AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5610F064202D13E7004CD2AC;
+			remoteInfo = SingleSignOn;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		133211EAD64B6E7010491C5B /* Pods_SingleSignOn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SingleSignOn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5610F065202D13E7004CD2AC /* SingleSignOn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SingleSignOn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5610F068202D13E7004CD2AC /* SingleSignOn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleSignOn.h; sourceTree = "<group>"; };
+		5610F069202D13E7004CD2AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5610F06E202D13E7004CD2AC /* SingleSignOnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SingleSignOnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5610F073202D13E7004CD2AC /* SingleSignOnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSignOnTests.swift; sourceTree = "<group>"; };
+		5610F075202D13E7004CD2AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5610F07F202D14E3004CD2AC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		9DBB25529445D12D3C9FEEA5 /* Pods-SingleSignOn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SingleSignOn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SingleSignOn/Pods-SingleSignOn.debug.xcconfig"; sourceTree = "<group>"; };
+		EBE0D3BF6EC9DFD049322169 /* Pods-SingleSignOn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SingleSignOn.release.xcconfig"; path = "Pods/Target Support Files/Pods-SingleSignOn/Pods-SingleSignOn.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5610F061202D13E7004CD2AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBF776BE94BDB4E00ABA2247 /* Pods_SingleSignOn.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5610F06B202D13E7004CD2AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5610F06F202D13E7004CD2AC /* SingleSignOn.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0785194C5F7AE047C9C71562 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DBB25529445D12D3C9FEEA5 /* Pods-SingleSignOn.debug.xcconfig */,
+				EBE0D3BF6EC9DFD049322169 /* Pods-SingleSignOn.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5610F05B202D13E7004CD2AC = {
+			isa = PBXGroup;
+			children = (
+				5610F067202D13E7004CD2AC /* SingleSignOn */,
+				5610F072202D13E7004CD2AC /* SingleSignOnTests */,
+				5610F066202D13E7004CD2AC /* Products */,
+				0785194C5F7AE047C9C71562 /* Pods */,
+				5D9A24645EEE8CF2DA01820E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5610F066202D13E7004CD2AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5610F065202D13E7004CD2AC /* SingleSignOn.framework */,
+				5610F06E202D13E7004CD2AC /* SingleSignOnTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5610F067202D13E7004CD2AC /* SingleSignOn */ = {
+			isa = PBXGroup;
+			children = (
+				5610F07F202D14E3004CD2AC /* Podfile */,
+				5610F068202D13E7004CD2AC /* SingleSignOn.h */,
+				5610F069202D13E7004CD2AC /* Info.plist */,
+			);
+			path = SingleSignOn;
+			sourceTree = "<group>";
+		};
+		5610F072202D13E7004CD2AC /* SingleSignOnTests */ = {
+			isa = PBXGroup;
+			children = (
+				5610F073202D13E7004CD2AC /* SingleSignOnTests.swift */,
+				5610F075202D13E7004CD2AC /* Info.plist */,
+			);
+			path = SingleSignOnTests;
+			sourceTree = "<group>";
+		};
+		5D9A24645EEE8CF2DA01820E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				133211EAD64B6E7010491C5B /* Pods_SingleSignOn.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5610F062202D13E7004CD2AC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5610F076202D13E7004CD2AC /* SingleSignOn.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5610F064202D13E7004CD2AC /* SingleSignOn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5610F079202D13E7004CD2AC /* Build configuration list for PBXNativeTarget "SingleSignOn" */;
+			buildPhases = (
+				024C685BCCFB5B64F31488FF /* [CP] Check Pods Manifest.lock */,
+				5610F060202D13E7004CD2AC /* Sources */,
+				5610F061202D13E7004CD2AC /* Frameworks */,
+				5610F062202D13E7004CD2AC /* Headers */,
+				5610F063202D13E7004CD2AC /* Resources */,
+				0FCEEFEC642F6024F959875F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SingleSignOn;
+			productName = SingleSignOn;
+			productReference = 5610F065202D13E7004CD2AC /* SingleSignOn.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5610F06D202D13E7004CD2AC /* SingleSignOnTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5610F07C202D13E7004CD2AC /* Build configuration list for PBXNativeTarget "SingleSignOnTests" */;
+			buildPhases = (
+				5610F06A202D13E7004CD2AC /* Sources */,
+				5610F06B202D13E7004CD2AC /* Frameworks */,
+				5610F06C202D13E7004CD2AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5610F071202D13E7004CD2AC /* PBXTargetDependency */,
+			);
+			name = SingleSignOnTests;
+			productName = SingleSignOnTests;
+			productReference = 5610F06E202D13E7004CD2AC /* SingleSignOnTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5610F05C202D13E7004CD2AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Jason Leach";
+				TargetAttributes = {
+					5610F064202D13E7004CD2AC = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					5610F06D202D13E7004CD2AC = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5610F05F202D13E7004CD2AC /* Build configuration list for PBXProject "SingleSignOn" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5610F05B202D13E7004CD2AC;
+			productRefGroup = 5610F066202D13E7004CD2AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5610F064202D13E7004CD2AC /* SingleSignOn */,
+				5610F06D202D13E7004CD2AC /* SingleSignOnTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5610F063202D13E7004CD2AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5610F080202D14E3004CD2AC /* Podfile in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5610F06C202D13E7004CD2AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		024C685BCCFB5B64F31488FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SingleSignOn-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0FCEEFEC642F6024F959875F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SingleSignOn/Pods-SingleSignOn-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5610F060202D13E7004CD2AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5610F06A202D13E7004CD2AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5610F074202D13E7004CD2AC /* SingleSignOnTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5610F071202D13E7004CD2AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5610F064202D13E7004CD2AC /* SingleSignOn */;
+			targetProxy = 5610F070202D13E7004CD2AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5610F077202D13E7004CD2AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5610F078202D13E7004CD2AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5610F07A202D13E7004CD2AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DBB25529445D12D3C9FEEA5 /* Pods-SingleSignOn.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = KH9MTRSDAZ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SingleSignOn/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.fullboar.pathfinder.mobile.SingleSignOn;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5610F07B202D13E7004CD2AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBE0D3BF6EC9DFD049322169 /* Pods-SingleSignOn.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = KH9MTRSDAZ;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SingleSignOn/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.fullboar.pathfinder.mobile.SingleSignOn;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5610F07D202D13E7004CD2AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KH9MTRSDAZ;
+				INFOPLIST_FILE = SingleSignOnTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.fullboar.pathfinder.mobile.SingleSignOnTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5610F07E202D13E7004CD2AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KH9MTRSDAZ;
+				INFOPLIST_FILE = SingleSignOnTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.fullboar.pathfinder.mobile.SingleSignOnTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5610F05F202D13E7004CD2AC /* Build configuration list for PBXProject "SingleSignOn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5610F077202D13E7004CD2AC /* Debug */,
+				5610F078202D13E7004CD2AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5610F079202D13E7004CD2AC /* Build configuration list for PBXNativeTarget "SingleSignOn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5610F07A202D13E7004CD2AC /* Debug */,
+				5610F07B202D13E7004CD2AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5610F07C202D13E7004CD2AC /* Build configuration list for PBXNativeTarget "SingleSignOnTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5610F07D202D13E7004CD2AC /* Debug */,
+				5610F07E202D13E7004CD2AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5610F05C202D13E7004CD2AC /* Project object */;
+}
