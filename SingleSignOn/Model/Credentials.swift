@@ -24,14 +24,16 @@ import SwiftKeychainWrapper
 
 public struct Credentials {
     
-    let tokenType: String
-    let refreshToken: String
-    let accessToken: String
-    let sessionState: String
-    let refreshExpiresIn: Int
-    let notBeforePolicy: Int
-    let tokenId: String
-    let expiresIn: Int
+    public let accessToken: String
+    internal let tokenType: String
+    internal let refreshToken: String
+    internal let sessionState: String
+    internal let refreshExpiresIn: Int
+    internal let refreshExpiresAt: Date
+    internal let notBeforePolicy: Int
+    internal let tokenId: String
+    internal let expiresIn: Int
+    internal let expiresAt: Date
     internal let props: [String : Any]
 
     static func loadFromStoredCredentials() -> Credentials? {
@@ -43,7 +45,27 @@ public struct Credentials {
         return nil
     }
     
+    static func dateToString(date: Date) -> String {
+        
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = Constants.Defaults.dateFormat
+        formatter.timeZone = TimeZone(abbreviation: Constants.Defaults.timeZoneCode)
+
+        return formatter.string(from: date)
+    }
+    
+    static func toDate(string: String) -> Date? {
+        
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = Constants.Defaults.dateFormat
+        formatter.timeZone = TimeZone(abbreviation: Constants.Defaults.timeZoneCode)
+        
+        return formatter.date(from: string)
+    }
+    
+    
     init(withJSON data: [String: Any]) {
+        
         
         tokenType = data["token_type"] as! String
         refreshToken = data["refresh_token"] as! String
@@ -54,30 +76,40 @@ public struct Credentials {
         tokenId = data["id_token"] as! String
         expiresIn = data["expires_in"] as! Int                  // in sec
         
-        props = ["token_type": tokenType, "refresh_token": refreshToken, "access_token": accessToken, "session_state": sessionState, "refresh_expires_in": refreshExpiresIn, "not-before-policy": notBeforePolicy, "id_token": tokenId, "expires_in": expiresIn]
+        // If we are loading credentials from the keychain we will have two additional fields representing when the
+        // tokens will expire. Otherwise they need to be created
+        if let refreshExpiresAtString  = data["refreshExpiresAt"] as? String, let refreshExpiresAt = Credentials.toDate(string: refreshExpiresAtString), let expiresAtString = data["expiresAt"] as? String, let expiresAt = Credentials.toDate(string: expiresAtString) {
+            self.refreshExpiresAt = refreshExpiresAt
+            self.expiresAt = expiresAt
+        } else {
+            refreshExpiresAt = Date().addingTimeInterval(Double(refreshExpiresIn))
+            expiresAt = Date().addingTimeInterval(Double(expiresIn))
+        }
 
-        print(accessToken)
+        // Used to serialize this object so it can be stored in the keychian
+        props = ["token_type": tokenType, "refresh_token": refreshToken, "access_token": accessToken, "session_state": sessionState, "refresh_expires_in": refreshExpiresIn, "not-before-policy": notBeforePolicy, "id_token": tokenId, "expires_in": expiresIn, "refreshExpiresAt": Credentials.dateToString(date: refreshExpiresAt), "expiresAt": Credentials.dateToString(date: expiresAt)]
+
         save()
     }
 
-    internal func authTokenExpirationDate() -> Date {
-
-        return Date().addingTimeInterval(Double(expiresIn))
-    }
-    
-    internal func refreshTokenExpirationDate() -> Date {
-
-        return Date().addingTimeInterval(Double(refreshExpiresIn))
-    }
-    
     internal func remove() {
         
         KeychainWrapper.standard.removeObject(forKey: Constants.Keychain.KeycloakCredentials)
     }
     
     public func isExpired() -> Bool {
+
+        return isAuthTokenExpired() && isRefreshTokenExpired()
+    }
+    
+    public func isAuthTokenExpired() -> Bool {
         
-        return Date() > Date().addingTimeInterval(Double(refreshExpiresIn)) && Date() > Date().addingTimeInterval(Double(expiresIn))
+        return Date() > expiresAt
+    }
+
+    public func isRefreshTokenExpired() -> Bool {
+
+        return Date() > refreshExpiresAt
     }
 
     private static func load() -> [String: Any]? {
@@ -105,4 +137,5 @@ public struct Credentials {
             print("error converting to json: \(error)")
         }
     }
+    
 }

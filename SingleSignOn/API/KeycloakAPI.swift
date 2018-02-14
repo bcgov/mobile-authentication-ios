@@ -23,6 +23,8 @@ import Alamofire
 
 class KeycloakAPI {
     
+    static let refreshTokenExpiredMessage = "Refresh token expired"
+    
     class func exchange(oneTimeCode code: String, url: URL, grantType: String, redirectUri: String, clientId: String, completionHandler: @escaping (_ response: Credentials?, _ error: Error?) -> ()) {
         
         let params = ["grant_type": grantType, "redirect_uri": redirectUri, "client_id": clientId, "code": code]
@@ -40,7 +42,6 @@ class KeycloakAPI {
                     print("Error: \(String(describing: response.result.error))")
 
                     completionHandler(nil, AuthenticationError.unknownError)
-
                     return
                 }
 
@@ -64,13 +65,16 @@ class KeycloakAPI {
                 guard let json = response.result.value as? [String: Any], json["error"] == nil else {
                     print("result error: \(String(describing: response.result.error))")
                     if let json = response.result.value as? [String: Any] {
-                        print("result message: \(String(describing: json["error_description"] ?? "No message supplied"))")
+                        let errorMessage = String(describing: json["error_description"] ?? "No message supplied")
+                        print("result message: \(errorMessage)")
                         
-                        
+                        if errorMessage == KeycloakAPI.refreshTokenExpiredMessage {
+                            completionHandler(nil, AuthenticationError.expired)
+                            return
+                        }
                     }
 
                     completionHandler(nil, AuthenticationError.unknownError)
-                    
                     return
                 }
                 

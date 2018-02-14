@@ -27,6 +27,12 @@ class WebHeaderView: UIView {
     @IBOutlet weak private var securityIndicatorImageView: UIImageView!
     @IBOutlet weak private var hostLabel: UILabel!
     
+    private let lockImage: UIImage? = {
+        return UIImage(named: "lock", in: Bundle(for: WebHeaderView.self), compatibleWith: nil)
+    }()
+    private let unlockImage: UIImage? = {
+        return UIImage(named: "unlock", in: Bundle(for: WebHeaderView.self), compatibleWith: nil)
+    }()
     internal var onCloseTouched: WebHeaderViewCloseCallback?
     internal var url: URL? {
         didSet {
@@ -60,17 +66,15 @@ class WebHeaderView: UIView {
     
     private func isSecureScheme(schem: String) -> Bool {
         
-        let secureScheme = "https"
-        
-        return schem == secureScheme
+        return schem == Constants.API.secureScheme
     }
     
     private func updateSecurityIndicator(scheme: String) {
         
         if isSecureScheme(schem: scheme) {
-            securityIndicatorImageView.image = UIImage(named: "lock", in: Bundle(for: WebHeaderView.self), compatibleWith: nil)
+            securityIndicatorImageView.image = lockImage
         } else {
-            securityIndicatorImageView.image = UIImage(named: "unlock", in: Bundle(for: WebHeaderView.self), compatibleWith: nil)
+            securityIndicatorImageView.image = unlockImage
         }
     }
     

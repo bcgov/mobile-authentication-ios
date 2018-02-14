@@ -28,8 +28,6 @@ public class AuthViewController: UIViewController {
     private var clientId: String
     private var responseType: String
     private let headerViewHeight: CGFloat = {
-        //  44.0 // 32.0
-        //  20.0 // mini 10
         return 88.0
     }()
     private let webView: WKWebView = {
@@ -161,16 +159,12 @@ public class AuthViewController: UIViewController {
             return false
         }
 
-        return host.range(of:"pathfinder.gov.bc.ca") != nil
+        return host.range(of: Constants.API.allowedWebDomain) != nil
     }
 }
 
 // MARK: WKNavigationDelegate
 extension AuthViewController: WKNavigationDelegate {
-    
-//    public func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-//
-//    }
 
     public func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
 
@@ -179,15 +173,11 @@ extension AuthViewController: WKNavigationDelegate {
             decisionHandler(.cancel)
             return
         }
-        
-        //  print("HTTP code = \((navigationResponse.response as? HTTPURLResponse)?.statusCode)", url)
-// webRequestFaild error with error indicating bad message.
+
         decisionHandler(canLoad(url: url) ? .allow : .cancel)
     }
     
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        
-//        print("webView:\(webView) decidePolicyForNavigationAction:\(navigationAction) decisionHandler:\(decisionHandler)")
 
         guard let url = navigationAction.request.url else {
             decisionHandler(.cancel)
@@ -217,5 +207,4 @@ extension AuthViewController: WKNavigationDelegate {
 
         print("failed web navigation = \(error)")
     }
-    
 }

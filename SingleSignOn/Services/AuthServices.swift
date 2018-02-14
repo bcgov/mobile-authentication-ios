@@ -27,16 +27,18 @@ public class AuthServices: NSObject {
     private var baseUrl: URL
     private var redirectUri: String
     private var clientId: String
+    private var realm: String
     public private(set) var credentials: Credentials? = {
         return Credentials.loadFromStoredCredentials()
     }()
     public var onAuthenticationCompleted: AuthenticationCompleted?
     
-    public init(baseUrl: URL, redirectUri: String, clientId: String) {
+    public init(baseUrl: URL, redirectUri: String, clientId: String, realm: String) {
         
         self.baseUrl = baseUrl
         self.redirectUri = redirectUri
         self.clientId = clientId
+        self.realm = realm
 
         super.init()
     }
@@ -52,7 +54,8 @@ public class AuthServices: NSObject {
     
     public func viewController(completion: AuthenticationCompleted? = nil) -> AuthViewController {
      
-        let url = baseUrl.appendingPathComponent(Constants.API.auth)
+        let endpoint = Constants.API.auth.replacingOccurrences(of: Constants.API.realmToken, with: realm)
+        let url = baseUrl.appendingPathComponent(endpoint)
         let avc = AuthViewController(authUrl: url, redirectUri: redirectUri, clientId: clientId, responseType: Constants.API.authenticationResponseType)
         avc.delegate = self
         onAuthenticationCompleted = completion
@@ -62,8 +65,13 @@ public class AuthServices: NSObject {
 
     public func exchange(_ oneTimeCode: String, completion: @escaping (Credentials?, Error?) -> Void) {
         
-        let url = baseUrl.appendingPathComponent(Constants.API.token)
-        KeycloakAPI.exchange(oneTimeCode: oneTimeCode, url: url, grantType: Constants.GrantType.authorizationCode.rawValue, redirectUri: redirectUri, clientId: clientId, completionHandler: completion)
+        let endpoint = Constants.API.token.replacingOccurrences(of: Constants.API.realmToken, with: realm)
+        let url = baseUrl.appendingPathComponent(endpoint)
+        KeycloakAPI.exchange(oneTimeCode: oneTimeCode, url: url, grantType: Constants.GrantType.authorizationCode.rawValue, redirectUri: redirectUri, clientId: clientId) { (credentials: Credentials?, error: Error?) in
+         
+            self.credentials = credentials
+            completion(credentials, error)
+        }
     }
     
     public func refreshCredientials(completion: @escaping (Credentials?, Error?) -> Void) {
@@ -73,13 +81,18 @@ public class AuthServices: NSObject {
             return
         }
         
-        if credentials.isExpired() {
+        if credentials.isRefreshTokenExpired() {
             completion(nil, AuthenticationError.expired)
             return
         }
-        
-        let url = baseUrl.appendingPathComponent(Constants.API.token)
-        KeycloakAPI.refresh(credentials: credentials, url: url, grantType: Constants.GrantType.refreshToken.rawValue, redirectUri: redirectUri, clientId: clientId, completionHandler: completion)
+
+        let endpoint = Constants.API.token.replacingOccurrences(of: Constants.API.realmToken, with: realm)
+        let url = baseUrl.appendingPathComponent(endpoint)
+        KeycloakAPI.refresh(credentials: credentials, url: url, grantType: Constants.GrantType.refreshToken.rawValue, redirectUri: redirectUri, clientId: clientId) { (credentials: Credentials?, error: Error?) in
+            
+            self.credentials = credentials
+            completion(credentials, error)
+        }
     }
     
     public func logout() {
