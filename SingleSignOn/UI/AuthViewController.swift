@@ -27,6 +27,7 @@ public class AuthViewController: UIViewController {
     private var redirectUri: String
     private var clientId: String
     private var responseType: String
+    private var idpHint: String?
     private let headerViewHeight: CGFloat = {
         return 88.0
     }()
@@ -46,13 +47,14 @@ public class AuthViewController: UIViewController {
     private var recievedCustomRedirectUrl = false
     public weak var delegate: AuthenticationDelegate?
     
-    public init(authUrl: URL, redirectUri: String, clientId: String, responseType: String) {
+    public init(authUrl: URL, redirectUri: String, clientId: String, responseType: String, idpHint: String? = nil) {
      
         self.redirectUri = redirectUri
         self.clientId = clientId
         self.authUrl = authUrl
         self.responseType = responseType
-        
+        self.idpHint = idpHint
+
         super.init(nibName: nil, bundle: nil)
         
         webView.navigationDelegate = self
@@ -99,7 +101,12 @@ public class AuthViewController: UIViewController {
     private func buildAuthenticationURL() -> URL? {
         
         var components = URLComponents(url: authUrl, resolvingAgainstBaseURL: true)
-        components?.query = "response_type=\(responseType)&client_id=\(clientId)&redirect_uri=\(redirectUri)"
+        var query = "response_type=\(responseType)&client_id=\(clientId)&redirect_uri=\(redirectUri)"
+        if let idpHint = idpHint {
+            query = query + "&kc_idp_hint=\(idpHint)"
+        }
+
+        components?.query = query
 
         return components?.url
     }

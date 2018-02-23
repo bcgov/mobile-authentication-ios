@@ -28,17 +28,19 @@ public class AuthServices: NSObject {
     private var redirectUri: String
     private var clientId: String
     private var realm: String
+    private var idpHint: String?
     public private(set) var credentials: Credentials? = {
         return Credentials.loadFromStoredCredentials()
     }()
     public var onAuthenticationCompleted: AuthenticationCompleted?
     
-    public init(baseUrl: URL, redirectUri: String, clientId: String, realm: String) {
+    public init(baseUrl: URL, redirectUri: String, clientId: String, realm: String, idpHint: String? = nil) {
         
         self.baseUrl = baseUrl
         self.redirectUri = redirectUri
         self.clientId = clientId
         self.realm = realm
+        self.idpHint = idpHint
 
         super.init()
     }
@@ -56,7 +58,7 @@ public class AuthServices: NSObject {
      
         let endpoint = Constants.API.auth.replacingOccurrences(of: Constants.API.realmToken, with: realm)
         let url = baseUrl.appendingPathComponent(endpoint)
-        let avc = AuthViewController(authUrl: url, redirectUri: redirectUri, clientId: clientId, responseType: Constants.API.authenticationResponseType)
+        let avc = AuthViewController(authUrl: url, redirectUri: redirectUri, clientId: clientId, responseType: Constants.API.authenticationResponseType,  idpHint: idpHint)
         avc.delegate = self
         onAuthenticationCompleted = completion
         
