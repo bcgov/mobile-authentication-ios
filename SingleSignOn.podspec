@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name            = "SingleSignOn"
-  s.version         = "1.0.2"
+  s.version         = "1.0.3"
   s.summary         = "Library to interface with RedHat SSO"
   s.description     = "This pod contains various components to support authentication and credential managment"
   s.homepage        = "http://pathfinder.gov.bc.ca"
