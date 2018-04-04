@@ -30,22 +30,3 @@ public enum AuthenticationError: Error {
     case expired
     case webRequestFailed(error: Error)
 }
-
-/// Returns a Boolean indicating whether the errors are identical.
-public func == (lhs: Error, rhs: AuthenticationError) -> Bool {
-    return lhs._code == rhs._code
-        && lhs._domain == rhs._domain
-}
-
-
-/// Returns a Boolean indicating whether the errors are identical.
-public func == (lhs: AuthenticationError, rhs: Error) -> Bool {
-    return lhs._code == rhs._code
-        && lhs._domain == rhs._domain
-}
-
-/// Returns a Boolean indicating whether the errors are identical.
-public func == (lhs: AuthenticationError, rhs: AuthenticationError) -> Bool {
-    return lhs._code == rhs._code
-        && lhs._domain == rhs._domain
-}
