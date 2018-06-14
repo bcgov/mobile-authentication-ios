@@ -123,17 +123,15 @@ public class AuthViewController: UIViewController {
     
     private func extractCode(from url: URL) -> String? {
         
-        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true), let items = components.queryItems else {
             return nil
         }
         
-        if let query = components.query {
-            let results = query.split(separator: "=")
-            if let key = results.first, let value = results.last, String(describing: key) == responseType {
-                return String(describing: value)
-            }
+        let code = items.filter {  $0.name == responseType }
+        if code.count > 0 {
+            return code.first!.value
         }
-        
+
         return nil
     }
     
@@ -160,7 +158,8 @@ public class AuthViewController: UIViewController {
     }
     
     private func canLoad(url: URL) -> Bool {
-        
+        return true;
+
         // We only load URLs from our authorization host.
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true), let host = components.host else {
             return false

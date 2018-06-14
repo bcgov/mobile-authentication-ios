@@ -31,6 +31,8 @@ struct Constants {
         static let KeycloakCredentials = "KeycloakCredentials"
     }
 
+    // MARK: Foo
+    
     struct API {
         // The token {{REALM_NAME}} will be replaced with the correct value
         // as needed.
@@ -42,6 +44,8 @@ struct Constants {
         static let secureScheme = "https"
         static let realmToken = "{{REALM_NAME}}"
     }
+    
+    // MARK: Bar
     
     enum GrantType: String {
         case refreshToken = "refresh_token"
