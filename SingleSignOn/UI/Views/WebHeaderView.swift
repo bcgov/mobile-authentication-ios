@@ -83,11 +83,11 @@ class WebHeaderView: UIView {
         let aScheme = "\(scheme)://"
         let attributedSchem = NSMutableAttributedString.init(string: aScheme)
         let range1 = (aScheme as NSString).range(of: aScheme)
-        attributedSchem.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.lightGray , range: range1)
+        attributedSchem.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.lightGray , range: range1)
         
         let attributedHost = NSMutableAttributedString.init(string: host)
         let range2 = (host as NSString).range(of: host)
-        attributedHost.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.white , range: range2)
+        attributedHost.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white , range: range2)
 
         attributedSchem.append(attributedHost)
         

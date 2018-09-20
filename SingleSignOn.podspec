@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
   s.resources       = 'SingleSignOn/**/*.{storyboard,xib,xcassets}'
   s.requires_arc    = true
   s.dependency      'SwiftKeychainWrapper', '~> 3.0.1'
-  s.dependency      'Alamofire', '~> 4.6.0'
+  s.dependency      'Alamofire', '~> 4.7.3'
 end
