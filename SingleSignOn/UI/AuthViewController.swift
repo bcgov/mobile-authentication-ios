@@ -123,18 +123,13 @@ public class AuthViewController: UIViewController {
     
     private func extractCode(from url: URL) -> String? {
         
-        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+        let key = "code"
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true), let items = components.queryItems,
+            let code = items.first(where: { $0.name == key })?.value else {
             return nil
         }
         
-        if let query = components.query {
-            let results = query.split(separator: "=")
-            if let key = results.first, let value = results.last, String(describing: key) == responseType {
-                return String(describing: value)
-            }
-        }
-        
-        return nil
+        return code
     }
     
     private func handelCustomRedirect(url: URL) {

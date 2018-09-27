@@ -102,7 +102,7 @@ public class AuthServices: NSObject {
         guard let credentials = credentials else {
             return
         }
-        
+
         credentials.remove();
         self.credentials = nil
     }
