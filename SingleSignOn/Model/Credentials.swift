@@ -31,7 +31,6 @@ public struct Credentials {
     internal let refreshExpiresIn: Int
     internal let refreshExpiresAt: Date
     internal let notBeforePolicy: Int
-    internal let tokenId: String
     internal let expiresIn: Int
     internal let expiresAt: Date
     internal let props: [String : Any]
@@ -65,15 +64,13 @@ public struct Credentials {
     
     
     init(withJSON data: [String: Any]) {
-        
-        
+
         tokenType = data["token_type"] as! String
         refreshToken = data["refresh_token"] as! String
         accessToken = data["access_token"] as! String
         sessionState = data["session_state"] as! String
         refreshExpiresIn = data["refresh_expires_in"] as! Int   // in sec
         notBeforePolicy = data["not-before-policy"] as! Int
-        tokenId = data["id_token"] as! String
         expiresIn = data["expires_in"] as! Int                  // in sec
         
         // If we are loading credentials from the keychain we will have two additional fields representing when the
@@ -87,7 +84,7 @@ public struct Credentials {
         }
 
         // Used to serialize this object so it can be stored in the keychian
-        props = ["token_type": tokenType, "refresh_token": refreshToken, "access_token": accessToken, "session_state": sessionState, "refresh_expires_in": refreshExpiresIn, "not-before-policy": notBeforePolicy, "id_token": tokenId, "expires_in": expiresIn, "refreshExpiresAt": Credentials.dateToString(date: refreshExpiresAt), "expiresAt": Credentials.dateToString(date: expiresAt)]
+        props = ["token_type": tokenType, "refresh_token": refreshToken, "access_token": accessToken, "session_state": sessionState, "refresh_expires_in": refreshExpiresIn, "not-before-policy": notBeforePolicy, "expires_in": expiresIn, "refreshExpiresAt": Credentials.dateToString(date: refreshExpiresAt), "expiresAt": Credentials.dateToString(date: expiresAt)]
 
         save()
     }
