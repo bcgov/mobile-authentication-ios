@@ -25,9 +25,9 @@ class KeycloakAPI {
     
     static let refreshTokenExpiredMessage = "Refresh token expired"
     
-    class func exchange(oneTimeCode code: String, url: URL, grantType: String, redirectUri: String, clientId: String, completionHandler: @escaping (_ response: Credentials?, _ error: Error?) -> ()) {
+    class func exchange(oneTimeCode code: String, url: URL, grantType: String, redirectUri: String, clientId: String, codeVerifier: String, completionHandler: @escaping (_ response: Credentials?, _ error: Error?) -> ()) {
         
-        let params = ["grant_type": grantType, "redirect_uri": redirectUri, "client_id": clientId, "code": code]
+        let params = ["grant_type": grantType, "redirect_uri": redirectUri, "client_id": clientId, "code": code, "code_verifier": codeVerifier]
 
         Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default)
             .responseJSON { response in

@@ -5,7 +5,7 @@
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at 
+// You may obtain a copy of the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
 //
@@ -28,6 +28,9 @@ public class AuthViewController: UIViewController {
     private var clientId: String
     private var responseType: String
     private var idpHint: String?
+    private var code_challenge: String
+    private var code_challenge_method: String
+    private var codeVerifier: String
     private let headerViewHeight: CGFloat = {
         return 88.0
     }()
@@ -47,14 +50,17 @@ public class AuthViewController: UIViewController {
     private var recievedCustomRedirectUrl = false
     public weak var delegate: AuthenticationDelegate?
     
-    public init(authUrl: URL, redirectUri: String, clientId: String, responseType: String, idpHint: String? = nil) {
+    public init(authUrl: URL, redirectUri: String, clientId: String, responseType: String, idpHint: String? = nil, code_challenge: String, code_challenge_method: String, codeVerifier: String) {
      
         self.redirectUri = redirectUri
         self.clientId = clientId
         self.authUrl = authUrl
         self.responseType = responseType
         self.idpHint = idpHint
-
+        self.code_challenge = code_challenge
+        self.code_challenge_method = code_challenge_method
+        self.codeVerifier = codeVerifier
+        
         super.init(nibName: nil, bundle: nil)
         
         webView.navigationDelegate = self
@@ -101,7 +107,9 @@ public class AuthViewController: UIViewController {
     private func buildAuthenticationURL() -> URL? {
         
         var components = URLComponents(url: authUrl, resolvingAgainstBaseURL: true)
-        var query = "response_type=\(responseType)&client_id=\(clientId)&redirect_uri=\(redirectUri)"
+        var query = "response_type=\(responseType)&client_id=\(clientId)&redirect_uri=\(redirectUri)&code_challenge=\(code_challenge)&code_challenge_method=\(code_challenge_method)&pkceMethod=\("S256")"
+        //state? response mode? scope?nonce?
+        
         if let idpHint = idpHint {
             query = query + "&kc_idp_hint=\(idpHint)"
         }
